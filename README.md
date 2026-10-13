@@ -36,7 +36,7 @@ An unpaired low-light image enhancement project using a Zero-DCE style curve-est
 └── pyproject.toml
 ```
 
-## Requirements and setup
+### Quick setup
 
 Python 3.10 or newer, PyTorch, NumPy, and Pillow are required. From the repository root, create a fresh virtual environment and install the project:
 
@@ -51,7 +51,7 @@ The workspace may contain an older `venv/` directory. The commands above create 
 
 Place unpaired low-light images (`jpg`, `jpeg`, `png`, `bmp`, `tif`, `tiff`, or `webp`) directly in `data/raw/`. This folder is empty initially, so add images before training. Raw data is excluded from Git.
 
-## Train
+### Quick training command
 
 ```powershell
 python scripts/train.py --data data/raw --epochs 10 --batch-size 8
@@ -59,7 +59,7 @@ python scripts/train.py --data data/raw --epochs 10 --batch-size 8
 
 Checkpoints are saved under `outputs/weights/` by default. Training uses spatial consistency, exposure, color constancy, and curve smoothness losses. Run `python scripts/train.py --help` to see all options.
 
-## Enhance images
+### Quick inference commands
 
 ```powershell
 python scripts/enhance.py path/to/image.jpg --checkpoint outputs/weights/zerodce_epoch_010.pth
@@ -68,7 +68,7 @@ python scripts/enhance.py path/to/image_folder --checkpoint outputs/weights/zero
 
 Enhanced PNG files are written to `outputs/enhanced/`. Use `python scripts/enhance.py --help` to see options. Select a checkpoint filename that exists in your `outputs/weights/` folder.
 
-## Notebook
+### Notebook
 
 Open `notebooks/low_light_enhancement.ipynb` for a minimal example using the project package. It uses the local model and does not download an unrelated hosted Keras model.
 
